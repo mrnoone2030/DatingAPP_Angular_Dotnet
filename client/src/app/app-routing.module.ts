@@ -1,3 +1,5 @@
+import { NotFoundComponent } from './components/errors/not-found/not-found.component';
+import { TestErrorsComponent } from './components/errors/test-errors/test-errors.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { ListsComponent } from './components/lists/lists.component';
 import { MemberDetailComponent } from './components/members/member-detail/member-detail.component';
@@ -6,6 +8,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { GuardGuard } from './_guards/guard.guard';
+import { ServerErrorComponent } from './components/errors/server-error/server-error.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -20,7 +23,9 @@ const routes: Routes = [
       {path: 'messages', component: MessagesComponent},
     ]
   },
-  
+  {path: 'errors', component: TestErrorsComponent},
+  {path: 'not-found', component: NotFoundComponent},
+  {path: 'server-error', component: ServerErrorComponent},
   {path: '**', component: HomeComponent, pathMatch: 'full'},
 ];
 

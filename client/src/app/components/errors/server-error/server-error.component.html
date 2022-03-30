@@ -1,0 +1,6 @@
+<h4>Internal server error</h4>
+<ng-container *ngIf="error">
+    <h5 class="text-danger">{{error.message}}</h5>
+    <p class="font-weight-bold">Dont blame angular</p>
+    <code class="mt-5">{{error.details}}</code>
+</ng-container>
