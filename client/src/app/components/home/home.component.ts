@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +10,10 @@ export class HomeComponent implements OnInit {
 
   registerMode = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    
+    this.isLoggedIn();
   }
 
   registerToggle(){
@@ -21,6 +22,13 @@ export class HomeComponent implements OnInit {
 
   cancelRegisterHandler(bool: boolean){
     this.registerMode = bool;
+  }
+
+  private isLoggedIn(){
+    const token = JSON.parse(localStorage.getItem('user'))?.token;
+    if(token){
+      this.router.navigate(['/members']);
+    }
   }
 
 }
